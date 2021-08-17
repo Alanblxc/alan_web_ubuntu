@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html oncontextmenu="showMenu(event)">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="js/1.9.0@jquery.js"></script>
+    <script src="js/desktop.js"></script>
+    <script src="js/divrun.js"></script>
+    <link rel="stylesheet" href="alertjs/hsycmsAlert.min.css" />
+    <script src="alertjs/hsycmsAlert.min.js"></script>
+    <script src="js/cmd.js" type="text/javascript" charset="utf-8"></script>
+    <link
+      href="bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <script
+      src="bootstrap/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="bootstrap/cover.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+    <script src="layui/layui.js"></script>
+    <title>在线工具|桌面</title>
+  </head>
+
+  <body
+    background="img/desk.jpg"
+    style="
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-attachment: fixed;
+    "
+  >
+
+    <header
+      class="mui-bar mui-bar-nav"
+      style="background-color: #212529; height: 40px; text-align: center"
+    >
+      <a
+        style="float: left; color: white; font-family: 宋体; padding-left: 15px"
+        class="lead"
+        >Alan</a
+      >
+
+      <a
+        style="color: white; font-family: 宋体; padding-right: 10px"
+        class="lead"
+        id="currentTime"
+      ></a>
+
+      <nav
+        class="nav nav-masthead justify-content-center float-md-end top_menu"
+        style="
+          height: 30px;
+          padding-right: 10px;
+          display: flex;
+          align-items: center;
+        "
+      >
+        <div style="width: 30px; margin: 5px; margin-right: 10px">
+          <img src="img/email.svg" style="width: 30px" onclick="email();" />
+        </div>
+        <img
+          src="img/System_icon/network-wireless-signal-good-symbolic.svg"
+          style="width: 30px; margin: 5px"
+        />
+        <img
+          src="img/System_icon/audio-volume-medium-symbolic.svg"
+          style="width: 30px; margin: 5px"
+        />
+        <img
+          src="img/System_icon/battery-good-symbolic.svg"
+          style="width: 30px; margin: 5px"
+        />
+        <div class="arrow-custom-down" onclick="tools()">
+        </div>
+      </nav>
+    </header>
+    <div class="tools" id="tools" style="text-align: center;">
+<a href="https://space.bilibili.com/332711395" style="color: white;font-size: 15px;line-height: 30px;font-family: 黑体;">作者B站主页</a>
+<p><a href="https://www.wolai.com/alanweb/pwSXpsd1bYLdro98qyAvPu?theme=light" style="color: white;font-size: 15px;line-height: 30px;font-family: 黑体;">在线工具集</a>
+</p>
+    </div>
+    <!-- 软件图标 -->
+    <div class="side_menu" style="float: left">
+      <img
+        src="img/bash.png"
+        class="icon_side"
+        onclick='document.getElementById("terminal").style.visibility = "visible";'
+      />
+      <img
+        src="img/firefox.svg"
+        class="icon_side"
+        onclick='document.getElementById("ffrun").style.visibility = "visible";'
+      />
+      <img
+        src="img/vscode.png"
+        class="icon_side"
+        onclick='document.getElementById("vsrun").style.visibility = "visible";'
+      />
+      <img src="img/weixin.png" class="icon_side" onclick="vxno();" />
+      <img
+      src="img/tools.png"
+      class="icon_side"
+      onclick='document.getElementById("ontool").style.visibility = "visible";'
+    />
+    </div>
+    <!-- 桌面图标 -->
+    <div class="desktop">
+      <div
+        style="width: 50px; height: 50px; text-align: center; font-size: 10px"
+        class="folder"
+        id="folder"
+        ondblclick='document.getElementById("folderwd").style.visibility = "visible";'
+      >
+        <img src="img/System_icon/folder.png" />
+        <p style="color: white; user-select: none">正经の学习资料?</p>
+      </div>
+    </div>
+
+    <div
+      id="folderrwindows"
+      style="align-items: center; justify-content: center"
+    >
+      <div id="folderwd" class="divrun">
+        <div
+          style="
+            background-color: #2c2c2c;
+            text-align: center;
+            height: 40px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+          "
+        >
+          <img
+            src="img/System_icon/window-close-symbolic.svg"
+            class="close_button"
+            onclick='document.getElementById("folderwd").style.visibility = "hidden";'
+          />
+          <img src="img/System_icon/window-maximize-symbolic.svg"
+          class="big_button" onclick='big("folderwd");'' />
+          <img
+            src="img/System_icon/window-minimize-symbolic.svg"
+            class="little_button"
+            onclick='document.getElementById("folderwd").style.visibility = "hidden";'
+          />
+          <p
+            class="lead"
+            style="color: white; vertical-align: middle; line-height: 40px"
+          >
+            Alan os
+          </p>
+        </div>
+        <div style="background-color: #1c1b22">
+          <a style="color: white; font-size: 20px"><</a>
+          <a
+            style="
+              color: white;
+              font-size: 20px;
+              padding-right: 10px;
+              padding-left: 10px;
+            "
+            >></a
+          >
+          <img src="img/System_icon/folder.png" width="20px" height="20px" />
+          <input
+            value="c:\Alan\Desktop\正经の学习资料\"
+            style="
+              background-color: #1c1b22;
+              border: none;
+              width: 80%;
+              color: white;
+            "
+          />
+        </div>
+        <!-- 文件树 -->
+        <div
+          style="
+            width: 22%;
+            height: 100%;
+            background-color: #3e3e3e;
+            float: left;
+            border-bottom-left-radius: 15px;
+          "
+        >
+          <div class="folderdiv"  id="folderdiv1" style=" background-color: #e95420;">
+            <img src="img/System_icon/folder.svg" class="folderdivicon" />
+            <a
+              style="
+                font-size: 20px;
+                color: white;
+                line-height: 30px;
+                margin-left: 5px;
+              "
+              onclick="studyawa()"
+              >学习资料</a
+            >
+          </div>
+          <div class="folderdiv" id="folderdiv2">
+            <img src="img/System_icon/about.svg" class="folderdivicon"/>
+            <a
+              style="
+                font-size: 20px;
+                color: white;
+                line-height: 30px;
+                margin-left: 5px;
+              "
+              onclick="about()"
+              >关于作者</a
+            >
+          </div>
+        </div>
+        <!-- 文件夹 -->
+        <div
+          style="
+            width: 78%;
+            height: 100%;
+            background-color: #343434;
+            float: right;
+            border-bottom-right-radius: 15px;
+          "
+        >
+        <!-- 关于 -->
+        <div
+        id="folder2"
+        style="
+          width: 100%;
+          height: 100%;
+          background-color: #343434;
+          float: right;
+          border-bottom-right-radius: 15px;
+          align-items: center;
+        text-align: center;
+        display: none;
+        "
+      > <img
+      src="img/alan.jpg"
+      style=" margin-top: 20px"
+    />
+    <p style="color: white;font-size: 15px;line-height: 30px;">awa,我是个B站的up主:<a href="https://space.bilibili.com/332711395" style="font-size: 15px;text-decoration: none;color: white;"><strong>艾伦嗷</strong></a></p>
+    <p style="color: white;font-size: 15px;line-height: 30px;">不过我是个安卓逆向区的初中up</p>
+    <p style="color: white;font-size: 15px;line-height: 30px;">做这个网站是为了练习下前端(我知道我代码写的烂QAQ)</p>
+    <hr>
+    <p style="color: white;font-size: 15px;">awa,这个网站的灵感来自一个哔哩哔哩一个up主:<a href="https://www.bilibili.com/video/BV1W64y1k7g2" style="font-size: 15px;text-decoration: none;color: #db2777;">视频地址</a></p>
+  <p style="color: white;font-size: 15px;">Web-Ubuntu项目地址<a href="https://github.com/Obj9527/Web-Ubuntu"  style="font-size: 15px;text-decoration: none;color: #db2777;">项目地址</a></p>  
+  <p style="color: white;font-size: 15px;line-height: 30px;">写这个网站的时候,很多地方和风格都是参考他的.</p>
+  <p style="color: white;font-size: 15px;line-height: 30px;">当然,没有参考代码(流下了不会vue的眼泪)</p>
+  <p style="color: white;font-size: 15px;line-height: 30px;">也祝这位大佬早日找到工作叭</p>
+</div>
+    <!-- 学习资料文件 -->
+          <div
+            id="folder1"
+            style="
+              width: 100%;
+              height: 100%;
+              background-color: #343434;
+              float: right;
+              border-bottom-right-radius: 15px;
+            "
+          >
+            <div
+              class="folderstudy"
+              ondblclick='
+ window.location.href="/folder/sec-chart.zip"'
+            >
+              <img src="img/System_icon/folder.png" />
+              <p  class="studybook">渗透学习路线脑图</p>
+            </div>
+            <div
+              class="folderstudy"
+              ondblclick='
+window.location.href="/folder/51本精品Python学习书籍.rar"'
+            >
+              <img src="img/System_icon/folder.png" />
+              <p class="studybook">
+                51本精品Python学习书籍
+              </p>
+            </div>
+            <div
+            class="folderstudy"
+            ondblclick='
+window.location.href="/folder/android从入门到精通pdf 明日科技.pdf"'
+          >
+            <img src="img/System_icon/folder.png" />
+            <p  class="studybook">
+              android从入门到精通pdf 明日科技.pdf
+            </p>
+          </div>
+          <div
+          class="folderstudy"
+          ondblclick='
+window.location.href="/folder/HTML_CSS_JavaScript网页制作从入门到精通 - 刘西杰.pdf"'
+        >
+          <img src="img/System_icon/folder.png" />
+          <p  class="studybook">
+            HTML_CSS_JavaScript网页制作从入门到精通 - 刘西杰.pdf
+          </p>
+        </div>
+        <div
+        class="folderstudy"
+        ondblclick='
+window.location.href="/folder/sqlmap渗透笔记.rar"'
+      >
+        <img src="img/System_icon/folder.png" />
+        <p  class="studybook">
+          sqlmap渗透笔记.rar
+        </p>
+      </div>
+      <div
+      class="folderstudy"
+      ondblclick='
+window.location.href="/folder/鸟哥的LINUX私房菜_基础学习篇(第三版).pdf"'
+    >
+      <img src="img/System_icon/folder.png" />
+      <p  class="studybook">
+        鸟哥的LINUX私房菜_基础学习篇(第三版).pdf
+      </p>
+    </div>
+    <div
+    class="folderstudy"
+    ondblclick='
+window.location.href="/folder/kotlin从入门到精通.pdf"'
+  >
+    <img src="img/System_icon/folder.png" />
+    <p  class="studybook">
+      kotlin从入门到精通.pdf
+    </p>
+  </div>
+        </div>
+      </div>
+    </div>
+    <!-- 桌面 -->
+    <!-- firefox -->
+    <div id="ffrun" class="divrun">
+      <div
+        style="
+          background-color: #2c2c2c;
+          text-align: center;
+          height: 40px;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+        "
+      >
+        <img
+          src="img/System_icon/window-close-symbolic.svg"
+          class="close_button"
+          onclick='document.getElementById("ffrun").style.visibility = "hidden";'
+        />
+        <img src="img/System_icon/window-maximize-symbolic.svg"
+        class="big_button" onclick='big("ffrun");'' />
+        <img
+          src="img/System_icon/window-minimize-symbolic.svg"
+          class="little_button"
+          onclick='document.getElementById("ffrun").style.visibility = "hidden";'
+        />
+        <p
+          class="lead"
+          style="color: white; vertical-align: middle; line-height: 40px"
+        >
+          firefox
+        </p>
+      </div>
+      <div style="background-color: #1c1b22">
+        <img
+          src="img/System_icon/chrome_refresh.svg"
+          width="30px"
+          height="30px"
+          onclick="document.getElementById('serech').src = document.getElementById('serechtext').value;"
+        />
+        <img
+          src="img/System_icon/chrome_home.svg"
+          width="30px"
+          height="30px"
+          onclick='document.getElementById("serech").src = "https://cn.bing.com/?scope=";'
+        />
+        <input
+          id="serechtext"
+          value="https://cn.bing.com/?scope="
+          style="
+            background-color: #3e3e3e;
+            border: none;
+            width: 80%;
+            color: white;
+          "
+        />
+      </div>
+      <iframe
+        id="serech"
+        width="100%"
+        height="100%"
+        style="
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+        "
+      ></iframe>
+    </div>
+    <!-- terminal -->
+    <div id="terminal" class="divrun">
+      <div
+        style="
+          background-color: #2c2c2c;
+          text-align: center;
+          height: 40px;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+        "
+      >
+        <img
+          src="img/System_icon/window-close-symbolic.svg"
+          class="close_button"
+          onclick='document.getElementById("terminal").style.visibility = "hidden";document.getElementById("nulldiv").innerHTML="";document.getElementById("cmdtext").value="";'
+        />
+        <img
+          src="img/System_icon/window-maximize-symbolic.svg"
+          class="big_button"
+          onclick='big("terminal")'
+        />
+        <img
+          src="img/System_icon/window-minimize-symbolic.svg"
+          class="little_button"
+          onclick='document.getElementById("terminal").style.visibility = "hidden";'
+        />
+        <p
+          class="lead"
+          style="color: white; vertical-align: middle; line-height: 40px"
+        >
+          terminal
+        </p>
+      </div>
+      <div class="cmd" id="cmd">
+        <div class="cmddiv">
+          <div id="nulldiv"></div>
+          <a style="color: whitesmoke; padding-left: 5px">
+            <a style="color: white" class="lead"></a
+            ><font size="5" color="#8be9fd">root</font
+            ><a id="cmddir" style="font-size: 25px; color: #8be9fd">:</a></a
+          >
+          <input id="cmdtext" class="lead" />
+        </div>
+      </div>
+    </div>
+    <!-- vscode -->
+    <div id="vsrun" class="divrun">
+      <div
+        style="
+          background-color: #2c2c2c;
+          text-align: center;
+          height: 40px;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+        "
+      >
+        <img
+          src="img/System_icon/window-close-symbolic.svg"
+          class="close_button"
+          onclick='document.getElementById("vsrun").style.visibility = "hidden";'
+        />
+        <img
+          src="img/System_icon/window-maximize-symbolic.svg"
+          class="big_button"
+          onclick='big("vsrun");'
+        />
+        <img
+          src="img/System_icon/window-minimize-symbolic.svg"
+          class="little_button"
+          onclick='document.getElementById("vsrun").style.visibility = "hidden";'
+        />
+        <p
+          class="lead"
+          style="color: white; vertical-align: middle; line-height: 40px"
+        >
+          vscode
+        </p>
+      </div>
+      <iframe
+        src="https://github1s.com/"
+        width="100%"
+        height="100%"
+        style="
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+        "
+      ></iframe>
+    </div>
+    <!-- weixin -->
+    <div id="vxrun" class="divrun">
+      <div
+        style="
+          background-color: #2c2c2c;
+          text-align: center;
+          height: 40px;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+        "
+      >
+        <img
+          src="img/System_icon/window-close-symbolic.svg"
+          class="close_button"
+          onclick='document.getElementById("vxrun").style.visibility = "hidden";'
+        />
+        <img
+          src="img/System_icon/window-maximize-symbolic.svg"
+          class="big_button"
+          onclick='big("ontool");'
+        />
+        <img
+          src="img/System_icon/window-minimize-symbolic.svg"
+          class="little_button"
+          onclick='document.getElementById("vxrun").style.visibility = "hidden";'
+        />
+        <p
+          class="lead"
+          style="color: white; vertical-align: middle; line-height: 40px"
+        >
+          weixin
+        </p>
+      </div>
+      <iframe
+        id="weixin"
+        width="100%"
+        height="100%"
+        style="
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+        "
+      ></iframe>
+    </div>
+    <!-- 在线工具合集 -->
+    <div id="ontool" class="divrun">
+      <div
+        style="
+          background-color: #2c2c2c;
+          text-align: center;
+          height: 40px;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+        "
+      >
+        <img
+          src="img/System_icon/window-close-symbolic.svg"
+          class="close_button"
+          onclick='document.getElementById("ontool").style.visibility = "hidden";'
+        />
+        <img
+          src="img/System_icon/window-maximize-symbolic.svg"
+          class="big_button"
+          onclick='big("ontool");'
+        />
+        <img
+          src="img/System_icon/window-minimize-symbolic.svg"
+          class="little_button"
+          onclick='document.getElementById("ontool").style.visibility = "hidden";'
+        />
+        <p
+          class="lead"
+          style="color: white; vertical-align: middle; line-height: 40px"
+        >
+        online tool
+        </p>
+      </div>
+      <iframe
+        id="ontool"
+        width="100%"
+        height="100%"
+        style="
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+        "
+        src="https://www.wolai.com/alanweb/pwSXpsd1bYLdro98qyAvPu?theme=ligh"
+      ></iframe>
+    </div>
+    <!-- 软件区底部 -->
+    <div class="contextmenu" id="context">
+      <ul>
+        <li>
+          <a href="javascript:;" onclick="window.location.reload();">刷新</a>
+        </li>
+        <li><a href="javascript:;" style="opacity: 0.3">新建文件</a></li>
+        <li><a href="javascript:;" style="opacity: 0.3">删除</a></li>
+        <li><a href="javascript:;" style="opacity: 0.3">以..打开</a></li>
+        <hr />
+        <li>
+          <a
+            href="javascript:;"
+            onclick=' $("#terminal").css("visibility", "visible");'
+            >打开终端</a
+          >
+        </li>
+        <li>
+          <a
+            href="javascript:;"
+            onclick='$("#folderwd").css("visibility", "visible");'
+            >关于</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script type="text/javascript">
+    $("#serechtext").keypress(function (e) {
+      if (e.which == 13) {
+        document.getElementById("serech").src =
+          document.getElementById("serechtext").value;
+      }
+    });
+
+    document.getElementById("serech").src = "https://cn.bing.com/?scope=";
+    function vxno() {
+      alert("点取消");
+      document.getElementById("vxrun").style.visibility = "visible";
+      document.getElementById("weixin").src = "https://wx.qq.com/";
+      window.onbeforeunload = function () {
+        return "点取消";
+      };
+    }
+    $("#cmdtext").keypress(function (e) {
+      if (e.which == 13) {
+        cmding();
+      }
+    });
+    var divwindowsname = [
+      "#ffrun",
+      "#folderwd",
+      "#vxrun",
+      "#vsrun",
+      "#terminal",
+      "#ontool",
+    ];
+
+    for (j = 0; j < divwindowsname.length; j++) {
+      move(divwindowsname[j]);
+      $(divwindowsname[j]).css("visibility", "hidden");
+    }
+    setInterval(function () {
+      document.getElementById("currentTime").innerHTML =
+        new Date().toLocaleString();
+    });
+  </script>
+</html>
