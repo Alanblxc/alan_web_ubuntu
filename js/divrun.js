@@ -1,9 +1,9 @@
 function move(dirid) {
-  var _move = false; //移动标记
-  var _x, _y; //鼠标离控件左上角的相对位置
+  var _move = false; 
+  var _x, _y; 
   $(dirid)
     .click(function () {
-      //alert("click");//点击（松开后触发）
+      //alert("click");
     })
     .mousedown(function (e) {
       _move = true;
@@ -13,14 +13,14 @@ function move(dirid) {
   $(document)
     .mousemove(function (e) {
       if (_move) {
-        var x = e.pageX - _x; //移动时根据鼠标位置计算控件左上角的绝对位置
+        var x = e.pageX - _x; 
         var y = e.pageY - _y;
-        $(dirid).css({ top: y, left: x }); //控件新位置
+        $(dirid).css({ top: y, left: x }); 
       }
     })
     .mouseup(function () {
       _move = false;
-      $(dirid).fadeTo("fast", 1); //松开鼠标后停止移动并恢复成不透明  "fast":规定褪色效果的速度。
+      $(dirid).fadeTo("fast", 1);
     });
 }
 
@@ -50,11 +50,9 @@ function showMenu(env) {
   var x = e.clientX;
   var y = e.clientY;
 
-  //  调整宽度和高度
   context.style.left = x - 200 + "px"; //Math.min(w-202,x)+"px";
   context.style.top = y + "px"; //Math.min(h-230,y)+"px";
 
-  // return false可以关闭系统默认菜单
   return false;
 }
 // 当鼠标点击后关闭右键菜单
