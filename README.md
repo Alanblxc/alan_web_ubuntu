@@ -27,7 +27,7 @@ cd alan_web_ubuntu
 如果需要ping和nmap命令
 
 ```
-apt install nmap ping
+apt install nmap
 ```
 
 如果要学习资料,可以下载后解压到folder文件
