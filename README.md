@@ -1,7 +1,7 @@
 # Alan_web_linux
 
 #### 介绍
-学习前端,做的,代码写的有点烂
+学习前端做的,代码写的有点烂
 
 #### 软件架构
 用的PHP+HTML+CSS+JS+JQ库+一些UI框架写的
@@ -26,6 +26,12 @@ cd alan_web_ubuntu
 
 ```
 apt install nmap ping
+```
+
+如果要学习资料,可以下载后解压到folder文件
+
+```
+学习资料下载地址https://cloud.189.cn/web/share?code=Fv6vI3qMjQBf
 ```
 
 #### 使用说明
