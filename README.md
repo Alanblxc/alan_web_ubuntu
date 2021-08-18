@@ -3,6 +3,8 @@
 #### 介绍
 学习前端做的,代码写的有点烂
 
+演示地址:https://alanubuntu.rth.app/
+
 #### 软件架构
 用的PHP+HTML+CSS+JS+JQ库+一些UI框架写的
 
